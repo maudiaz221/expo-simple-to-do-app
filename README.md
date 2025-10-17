@@ -1,50 +1,177 @@
-# Welcome to your Expo app 👋
+# 📱 Todo App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A beautiful, modern todo application built with React Native and Expo Router. Manage your tasks with a calendar view, track your progress, and stay organized!
 
-## Get started
+## ✨ Features
 
-1. Install dependencies
+### 🏠 Home Screen
+- Welcome screen with quick navigation
+- Direct access to tasks and calendar views
 
+### ✅ Tasks Tab
+- Add, complete, and delete tasks
+- Real-time progress tracking
+- Persistent storage with SQLite
+- Device-based identification (no login required)
+
+### 📅 Calendar View
+- Monthly calendar with visual task indicators
+- Navigate between months
+- Quick "Today" button
+- Color-coded task status:
+  - 🟠 Orange dot: Has incomplete tasks
+  - 🟢 Green dot: All tasks completed
+  - 🟠🟢 Both: Partially completed
+
+### 📆 Date Detail View
+- View and manage tasks for specific dates
+- Add tasks directly to any date
+- Toggle completion status
+- Delete tasks
+- Beautiful date formatting
+
+## 🛠️ Tech Stack
+
+- **React Native** - Cross-platform mobile framework
+- **Expo Router** - File-based routing system
+- **TypeScript** - Type-safe development
+- **Drizzle ORM** - Type-safe SQL queries
+- **SQLite** - Local database storage
+- **Expo Secure Store** - Secure device ID storage
+
+## 📦 Installation
+
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Start the app
-
+2. Start the development server:
    ```bash
-   npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+3. Run on your device:
+   - Press `i` for iOS simulator
+   - Press `a` for Android emulator
+   - Scan QR code with Expo Go app
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🗂️ Project Structure
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+```
+app/
+├── _layout.tsx              # Root layout with Stack navigation
+├── index.tsx                # Old home (redirects to tabs)
+├── +not-found.tsx           # 404 error screen
+└── (tabs)/                  # Tab navigation group
+    ├── _layout.tsx          # Tab layout configuration
+    ├── index.tsx            # Home tab
+    ├── todos.tsx            # Tasks list tab
+    ├── calendar.tsx         # Calendar view tab
+    └── [date].tsx           # Dynamic date detail route
 
-## Get a fresh project
+db/
+├── schema.ts                # Drizzle ORM schema
+└── index.ts                 # Database initialization
 
-When you're ready, run:
+hooks/
+└── useTodos.ts              # Custom hook for todo operations
 
-```bash
-npm run reset-project
+utils/
+└── deviceId.ts              # Device identification
+
+contexts/
+└── AuthContext.tsx          # Firebase auth (optional)
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🎨 Key Features Explained
 
-## Learn more
+### Device-Based Identification
+Each device gets a unique ID stored securely using Expo Secure Store. No login required - your data stays on your device!
 
-To learn more about developing your project with Expo, look at the following resources:
+### SQLite Database
+Tasks are stored locally in a SQLite database using Drizzle ORM for type-safe queries. Data persists across app restarts.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Calendar Integration
+- Visual indicators show which days have tasks
+- Tap any day to view and manage tasks for that specific date
+- Color-coded status indicators for quick overview
 
-## Join the community
+### Tab Navigation
+Three main tabs provide easy navigation:
+1. **Home** - Quick overview and navigation
+2. **Tasks** - Traditional list view
+3. **Calendar** - Monthly calendar view
 
-Join our community of developers creating universal apps.
+## 🚀 Usage
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Adding Tasks
+1. Go to **Tasks** tab or tap a date on the **Calendar**
+2. Type your task in the input field
+3. Tap the blue + button or press Enter
+4. Task appears immediately!
+
+### Managing Tasks
+- **Complete**: Tap the checkbox to mark as done
+- **Delete**: Tap the trash icon to remove
+- **View by Date**: Tap any date on the calendar to see tasks for that day
+
+### Calendar Features
+- **Navigate Months**: Use arrow buttons or swipe
+- **Go to Today**: Tap "Today" button
+- **View Details**: Tap any date to see its tasks
+- **Visual Indicators**: Colored dots show task status
+
+## 📱 Platform Support
+
+- ✅ iOS (iPhone & iPad)
+- ✅ Android
+- ❌ Web (SQLite not supported)
+
+## 🔧 Development
+
+### Database
+The app uses SQLite with Drizzle ORM. The database is automatically created on first launch.
+
+### State Management
+- Local state with React hooks
+- Custom `useTodos` hook for data operations
+- Automatic refresh after mutations
+
+### Routing
+Expo Router handles navigation with:
+- Stack navigation for root layout
+- Tab navigation for main screens
+- Dynamic routes for date details
+
+## 📝 Scripts
+
+```bash
+npm start          # Start Expo dev server
+npm run android    # Run on Android
+npm run ios        # Run on iOS
+npm run web        # Run on web (limited)
+npm run lint       # Run linter
+```
+
+## 🎯 Future Enhancements
+
+- [ ] Task categories/tags
+- [ ] Task priorities
+- [ ] Recurring tasks
+- [ ] Task search
+- [ ] Export/import data
+- [ ] Dark mode
+- [ ] Notifications
+
+## 📄 License
+
+This project is open source and available for personal use.
+
+## 🤝 Contributing
+
+Feel free to fork, modify, and use this project for your own needs!
+
+---
+
+Built with ❤️ using React Native and Expo
