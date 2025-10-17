@@ -9,6 +9,7 @@ export default function Home() {
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.content}>
+
         <View style={styles.iconContainer}>
           <Ionicons name="checkmark-circle" size={120} color="#2196F3" />
         </View>
@@ -19,23 +20,13 @@ export default function Home() {
           Stay organized and productive with our simple task management tool
         </Text>
 
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => router.push("/todos" as any)}
-          >
-            <Ionicons name="list" size={24} color="#fff" />
-            <Text style={styles.buttonText}>View Tasks</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[styles.button, styles.buttonSecondary]}
-            onPress={() => router.push("/calendar" as any)}
-          >
-            <Ionicons name="calendar" size={24} color="#2196F3" />
-            <Text style={styles.buttonTextSecondary}>Calendar View</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => router.push("/todos")}
+        >
+          <Text style={styles.buttonText}>Get Started</Text>
+          <Ionicons name="arrow-forward" size={24} color="#fff" />
+        </TouchableOpacity>
 
         <View style={styles.featuresContainer}>
           <View style={styles.feature}>
@@ -84,33 +75,18 @@ const styles = StyleSheet.create({
     marginBottom: 48,
     lineHeight: 24,
   },
-  buttonContainer: {
-    width: "100%",
-    gap: 16,
-    marginBottom: 64,
-  },
   button: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
     backgroundColor: "#2196F3",
     paddingHorizontal: 32,
     paddingVertical: 16,
     borderRadius: 28,
     gap: 8,
-  },
-  buttonSecondary: {
-    backgroundColor: "#fff",
-    borderWidth: 2,
-    borderColor: "#2196F3",
+    marginBottom: 64,
   },
   buttonText: {
     color: "#fff",
-    fontSize: 18,
-    fontWeight: "600",
-  },
-  buttonTextSecondary: {
-    color: "#2196F3",
     fontSize: 18,
     fontWeight: "600",
   },
@@ -130,4 +106,3 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
 });
-
